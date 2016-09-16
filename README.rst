@@ -21,9 +21,13 @@ If you want to document one of the lookup endpoints (i.e. */account*, */user*, *
 Installation
 -------------
 1) Create a directory in the same directory where your ``conf.py`` file lives to hold the extension (most tutorials say to call it *sphinxext*)
-2) Download the repository and place the folder into the directory you created in step 1
-3) Open your ``conf.py`` file and
+2) Create a *__init__.py* file so that the modules can be imported from the directory 
+   >>> touch __init__.py
+3) Download the repository and place the folder into the directory you created in step 1
+4) Open your ``conf.py`` file and
    a) add the following line in order to add the directory to your path
         >>> sys.path.insert(0,os.path.abspath('sphinxext'))
    b) add this extension into the list of existing extensions
-        >>> extensions  = ["sphinx_wepayapi_directive.wepay_docs"]
+        >>> extensions  = ["SphinxWePayAPI.wepay_docs"]
+
+You can also copy the *wepay_docs* file out of the cloned directory and place it directly in your *sphinxext* directory
