@@ -6,11 +6,13 @@ All you need is the base endpoint (i.e. /account, /user, /account/kyc) and then 
 
 How to Use
 -------------
+.. _account_create: https://developer.wepay.com/api-calls/account#create
+
 Using the extension is very simple:
     >>> When creating accounts, we use :wepay:`account create`.
 
 This would render into:
-    >>> When creating accounts, we use `/account/create <https://developer.wepay.com/api-calls/account#create>`_.
+    >>> When creating accounts, we use `account_create`_.
 
 This also works with endpoints like the */account/kyc* endpoint:
     >>> When using the KYC APi, we use :wepay:`account/kyc create`
@@ -24,10 +26,10 @@ Installation
 2) Create a *__init__.py* file so that the modules can be imported from the directory 
    >>> touch __init__.py
 3) Download the repository and place the folder into the directory you created in step 1
-4) Open your ``conf.py`` file and
+4) Open your ``conf.py`` file and:
    a) add the following line in order to add the directory to your path
         >>> sys.path.insert(0,os.path.abspath('sphinxext'))
    b) add this extension into the list of existing extensions
-        >>> extensions  = ["SphinxWePayAPI.wepay_docs"]
+        >>> extensions  = ["SphinxWePayApi.wepay_docs"]
 
 You can also copy the *wepay_docs* file out of the cloned directory and place it directly in your *sphinxext* directory
