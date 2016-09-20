@@ -6,13 +6,11 @@ All you need is the base endpoint (i.e. /account, /user, /account/kyc) and then 
 
 How to Use
 -------------
-.. _account_create: https://developer.wepay.com/api-calls/account#create
-
 Using the extension is very simple:
     >>> When creating accounts, we use :wepay:`account create`.
 
 This would render into:
-    >>> When creating accounts, we use `account_create`_.
+    >>> When creating accounts, we use https://developer.wepay.com/api-calls/account#create
 
 This also works with endpoints like the */account/kyc* endpoint:
     >>> When using the KYC APi, we use :wepay:`account/kyc create`
