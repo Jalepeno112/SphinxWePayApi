@@ -6,6 +6,9 @@ from docutils.parsers.rst.roles import set_classes
 
 
 def setup(app):
+    """
+    Setup the directive.  It tells the directive what to use as the base URL for WePay documentation, and what the name of the directive is.
+    """
     app.add_config_value("wepay_docs_home", "https://developer.wepay.com/api-calls/", 'html')
 
     app.add_role("wepay", wepay_docs_role)
@@ -27,7 +30,7 @@ def make_wepay_link(app, rawtext, endpoint, function, options):
         if not base:
             raise AttributeError
     except AttributeError, err:
-        raise ValueError('bitbucket_project_url configuration value is not set (%s)' % str(err))
+        raise ValueError('wepay_docs_home configuration value is not set (%s)' % str(err))
 
     # if the URL doesn't include a trailing slash, add one
     slash = '/' if base[-1] != '/' else ''
