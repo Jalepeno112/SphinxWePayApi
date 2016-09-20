@@ -10,7 +10,7 @@ Using the extension is very simple:
     >>> When creating accounts, we use :wepay:`account create`.
 
 This would render into:
-    >>> When creating accounts, we use https://developer.wepay.com/api-calls/account#create
+    When creating accounts, we use `/account/create <https://developer.wepay.com/api-calls/account#create>`_
 
 This also works with endpoints like the */account/kyc* endpoint:
     >>> When using the KYC APi, we use :wepay:`account/kyc create`
@@ -25,8 +25,10 @@ Installation
    >>> touch __init__.py
 3) Download the repository and place the folder into the directory you created in step 1
 4) Open your ``conf.py`` file and:
+   
    a) add the following line in order to add the directory to your path
-        >>> sys.path.insert(0,os.path.abspath('sphinxext'))
+       >>> sys.path.insert(0,os.path.abspath('sphinxext'))
+   
    b) add this extension into the list of existing extensions
         >>> extensions  = ["SphinxWePayApi.wepay_docs"]
 
