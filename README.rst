@@ -29,6 +29,13 @@ To install the documentation using pip:
 
 This will install the package. Running `pip freeze` will also correctly show that this package was installed from a GitHub link instead of PyPi.
 
+After this, you need to add it to your Sphinx extension list.
+
+Open your `conf.py` page and modify the `extensions` variable so it looks like:
+    >>> extensions = [..., "sphinxwepayapi.wepay_docs"]
+
+Where the "..." is the list of all other extensions you hav.e
+
 For Source Using `sphinxext`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1) Create a directory in the same directory where your ``conf.py`` file lives to hold the extension (most tutorials say to call it *sphinxext*)
