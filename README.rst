@@ -20,6 +20,17 @@ If you want to document one of the lookup endpoints (i.e. */account*, */user*, *
 
 Installation
 -------------
+There are two ways to install the extension.  One way is to use pip to install from the GitHub repo (recommended) and the other is to clone the repository and add to a `sphinxext` folder in your documentation.
+
+Using pip
+~~~~~~~~~~~~
+To install the documentation using pip:
+    >>> pip install -e git+https://github.com/Jalepeno112/SphinxWePayApi.git#egg=sphinxwepayapi
+
+This will install the package. Running `pip freeze` will also correctly show that this package was installed from a GitHub link instead of PyPi.
+
+For Source Using `sphinxext`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1) Create a directory in the same directory where your ``conf.py`` file lives to hold the extension (most tutorials say to call it *sphinxext*)
 2) Create a *__init__.py* file so that the modules can be imported from the directory 
    >>> touch __init__.py
