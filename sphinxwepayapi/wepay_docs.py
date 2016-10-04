@@ -15,14 +15,14 @@ def setup(app):
 
     return {'version': '0.1'}   # identifies the version of our extension
 
-def make_wepay_link(app, rawtext, endpoint, function, url_override, options):
+def make_wepay_link(app, rawtext, endpoint, function, name_override, options):
     """
     Create link to WePay docs
 
     :param app:             the Sphinx application instance that is currently running
     :param endpoint:        name of the endpoint you want to point to (i.e. user, account, account/membership, etc.)
     :param function:        the function within that endpoint that we want to point to (ex: if endpoint is user, the function could be register)
-    :param url_override:   URL to use to override the link.  Not all documentation follows the exact same pattern.  For example, /account/kyc is documented under the /kyc URL in the docs.  So we can pass -/account/kyc in the directive to override the url of the link
+    :param name_override:   URL to use to override the link.  Not all documentation follows the exact same pattern.  For example, /account/kyc is documented under the /kyc URL in the docs.  So we can pass -/account/kyc in the directive to override the name of the link
 
     """
     try:
@@ -40,14 +40,12 @@ def make_wepay_link(app, rawtext, endpoint, function, url_override, options):
     # if no function is given, then it is the main endpoint, which is accessed by #lookup on the page
     ref = "{0}{1}#{2}"
 
-    if not url_override:
-        ref = ref.format(base,endpoint,function) if function else ref.format(base,endpoint,"lookup")
-    else:
-        ref = ref.format(base, url_override, function) if function else ref.format(base,endpoint,"lookup")
+    ref = ref.format(base,endpoint,function) if function else ref.format(base,endpoint,"lookup")
 
     # build the text that we will display instead of :wepay:`endpoint function`
-
     insert_text = "/" + endpoint + "/" + function if function else "/" + endpoint
+    if name_override:
+        insert_text = name_override
     set_classes(options)
 
     # make the node
@@ -69,11 +67,11 @@ def wepay_docs_role(name, rawtext, text, lineno, inliner,
     # if a function parameter is not given, then we don't use one
     # example: /account is the account lookup call but it doesn't have a function attached.
     # We can also use _-/some/string to override the name of the link because not all of the documentation follows this pattern
-    endpoint, url_override = text.split(" -") if ' -' in text else (text, None)
+    endpoint, name_override = text.split(" -") if ' -' in text else (text, None)
     endpoint, function = endpoint.split(" ") if ' ' in endpoint else (endpoint, None)
 
     # make the node
-    node = make_wepay_link(app, rawtext, endpoint, function, url_override, options)
+    node = make_wepay_link(app, rawtext, endpoint, function, name_override, options)
     return ([node], [])
 
     
