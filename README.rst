@@ -42,12 +42,7 @@ Running ``pip freeze`` will incorrectly document that the package was installed 
 You can use the ``-e`` flag to install the package in editable mode, which will cause ``pip freeze`` to show that the package was downloaded from GitHub.  
 However, this will create a ``src`` directory to store the downloaded package (you can use ``--src`` followed by a different directory name to change the location).
 
-Once the package is in that ``src`` directory, navigate into it.  Then into ``sphinxwepayapi``.
-
-From here you can run:
-    >>> python setup.py install
-
-That will install the package into ``site-packages`` of your Python environment and you can then safely remove the ``src`` directory.
+You should use the ``-e`` option if you feel it is important to remember that this package came from a GitHub repo instead of PyPi.
 
 For Source Using `sphinxext`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
