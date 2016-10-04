@@ -25,27 +25,29 @@ There are two ways to install the extension.  One way is to use pip to install f
 Using pip
 ~~~~~~~~~~~~
 To install the documentation using pip:
-    >>> pip install -e git+https://github.com/Jalepeno112/SphinxWePayApi.git#egg=sphinxwepayapi
+    >>> pip install git+https://github.com/Jalepeno112/SphinxWePayApi.git#egg=sphinxwepayapi
 
 This will install the package. 
 
 After this, you need to add it to your Sphinx extension list.
 
-Open your `conf.py` page and modify the `extensions` variable so it looks like:
+Open your ``conf.py`` page and modify the ``extensions`` variable so it looks like:
     >>> extensions = [..., "sphinxwepayapi.wepay_docs"]
 
-Where the "..." is the list of all other extensions you hav.e
+Where the "..." is the list of all other extensions you have.
 
 pip freeze Behavior
 ^^^^^^^^^^^^^^^^^^^^
-Running `pip freeze` will incorrectly document that the package was installed from PyPi instead of GitHub.  You can use the `-e` flag to install the package in editable mode, which will cause `pip freeze` to show that the package was downloaded from GitHub.  However, this will create a `src` directory to store the downloaded package (you can use `--src` followed by a different directory name to change the location).
+Running ``pip freeze`` will incorrectly document that the package was installed from PyPi instead of GitHub.  
+You can use the ``-e`` flag to install the package in editable mode, which will cause ``pip freeze`` to show that the package was downloaded from GitHub.  
+However, this will create a ``src`` directory to store the downloaded package (you can use ``--src`` followed by a different directory name to change the location).
 
-Once the package is in that `src` directory, navigate into it.  Then into `sphinxwepayapi`.
+Once the package is in that ``src`` directory, navigate into it.  Then into ``sphinxwepayapi``.
 
 From here you can run:
     >>> python setup.py install
 
-That will install the package into `site-packages` and you can then safely remove the `src` directory.
+That will install the package into ``site-packages`` of your Python environment and you can then safely remove the ``src`` directory.
 
 For Source Using `sphinxext`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
