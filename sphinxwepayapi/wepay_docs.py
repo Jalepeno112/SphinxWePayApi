@@ -30,7 +30,7 @@ def make_wepay_link(app, rawtext, endpoint, function, name_override, options):
         base = app.config.wepay_docs_home
         if not base:
             raise AttributeError
-    except AttributeError, err:
+    except AttributeError as err:
         raise ValueError('wepay_docs_home configuration value is not set (%s)' % str(err))
 
     # if the URL doesn't include a trailing slash, add one
